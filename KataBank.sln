@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Bank", "Bank\Bank.fsproj", "{297A0A4E-BA4A-4B00-B947-E49F7E4ABC2C}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Test", "Test\Test.fsproj", "{75E9E531-A0C8-4C6C-A417-F4696A370876}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{297A0A4E-BA4A-4B00-B947-E49F7E4ABC2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297A0A4E-BA4A-4B00-B947-E49F7E4ABC2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297A0A4E-BA4A-4B00-B947-E49F7E4ABC2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297A0A4E-BA4A-4B00-B947-E49F7E4ABC2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E9E531-A0C8-4C6C-A417-F4696A370876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E9E531-A0C8-4C6C-A417-F4696A370876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E9E531-A0C8-4C6C-A417-F4696A370876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E9E531-A0C8-4C6C-A417-F4696A370876}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "K8N9ON7uELaVqXQik3ujsJq92U64q7YY6sOT1MsJlJpIaaHSIPE1Go3Hv4N11SFsTKfB2PxXr5lr7B5K8MHPpQ==",
+  "success": true,
+  "projectFilePath": "/Users/tibo/Code/KataBank/Bank/Bank.fsproj",
+  "expectedPackageFiles": [
+    "/Users/tibo/.nuget/packages/fsharp.core/4.7.0/fsharp.core.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

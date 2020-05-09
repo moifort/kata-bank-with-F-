@@ -1,0 +1,4 @@
+namespace Bank
+
+open System
+
