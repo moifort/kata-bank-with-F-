@@ -52,6 +52,20 @@
           }
         }
       },
+      "FsUnit/3.8.1": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "4.2.3",
+          "NETStandard.Library": "2.0.3",
+          "NUnit": "[3.12.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/FsUnit.NUnit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FsUnit.NUnit.dll": {}
+        }
+      },
       "Microsoft.CodeCoverage/16.4.0": {
         "type": "package",
         "compile": {
@@ -419,7 +433,7 @@
           }
         }
       },
-      "NETStandard.Library/2.0.0": {
+      "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -1337,6 +1351,24 @@
         "lib/netstandard2.0/zh-Hant/FSharp.Core.resources.dll"
       ]
     },
+    "FsUnit/3.8.1": {
+      "sha512": "S4NrdLyldCYo/TTC5AktwB2DG2CGqMsZYrF9N43XnjNc4jlRdnvUBmLOmRQmAjDcCGRkfM92Oh0PzDjVncVu8Q==",
+      "type": "package",
+      "path": "fsunit/3.8.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsunit.3.8.1.nupkg.sha512",
+        "fsunit.nuspec",
+        "lib/net46/FsUnit.NUnit.dll",
+        "lib/net46/FsUnit.NUnit.pdb",
+        "lib/netstandard2.0/FsUnit.NUnit.deps.json",
+        "lib/netstandard2.0/FsUnit.NUnit.dll",
+        "lib/netstandard2.0/FsUnit.NUnit.pdb",
+        "tools/install.ps1"
+      ]
+    },
     "Microsoft.CodeCoverage/16.4.0": {
       "sha512": "qb7PMVZMAY5iUCvB/kDUEt9xqazWKZoKY/sGpAJO4VtwgN5IcEgipCu3n0i1GPCwGbWVL6k4a8a9F+FqmADJng==",
       "type": "package",
@@ -1784,16 +1816,15 @@
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll"
       ]
     },
-    "NETStandard.Library/2.0.0": {
-      "sha512": "7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
+    "NETStandard.Library/2.0.3": {
+      "sha512": "st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "type": "package",
-      "path": "netstandard.library/2.0.0",
+      "path": "netstandard.library/2.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "build/NETStandard.Library.targets",
         "build/netstandard2.0/NETStandard.Library.targets",
         "build/netstandard2.0/ref/Microsoft.Win32.Primitives.dll",
         "build/netstandard2.0/ref/System.AppContext.dll",
@@ -1910,7 +1941,7 @@
         "build/netstandard2.0/ref/netstandard.dll",
         "build/netstandard2.0/ref/netstandard.xml",
         "lib/netstandard1.0/_._",
-        "netstandard.library.2.0.0.nupkg.sha512",
+        "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
     },
@@ -4737,6 +4768,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Bank >= 1.0.0",
       "FSharp.Core >= 4.7.0",
+      "FsUnit >= 3.8.1",
       "Microsoft.NET.Test.Sdk >= 16.4.0",
       "NUnit3TestAdapter >= 3.15.1",
       "nunit >= 3.12.0"
@@ -4779,6 +4811,11 @@
           "FSharp.Core": {
             "target": "Package",
             "version": "[4.7.0, )",
+            "generatePathProperty": true
+          },
+          "FsUnit": {
+            "target": "Package",
+            "version": "[3.8.1, )",
             "generatePathProperty": true
           },
           "Microsoft.NET.Test.Sdk": {

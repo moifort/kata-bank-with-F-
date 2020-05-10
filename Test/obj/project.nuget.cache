@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Q5yaKxYAC8/UBjx2droRdvJS56eJVi+7SaI0cIvFnILQaLB+Nt5FjixLY/cg9Bm8pOM5Nnl9CL//c1IInNrbtw==",
+  "dgSpecHash": "7p7DQhadxz4V+L8qXdvoxcyJdKKSW05+iGCk82z1uSOBsK66wo99O2lE1naUD95ffq0j4MrN8G+e0TRvyt/Kjg==",
   "success": true,
   "projectFilePath": "/Users/tibo/Code/KataBank/Test/Test.fsproj",
   "expectedPackageFiles": [
     "/Users/tibo/.nuget/packages/fsharp.core/4.7.0/fsharp.core.4.7.0.nupkg.sha512",
+    "/Users/tibo/.nuget/packages/fsunit/3.8.1/fsunit.3.8.1.nupkg.sha512",
     "/Users/tibo/.nuget/packages/microsoft.codecoverage/16.4.0/microsoft.codecoverage.16.4.0.nupkg.sha512",
     "/Users/tibo/.nuget/packages/microsoft.csharp/4.0.1/microsoft.csharp.4.0.1.nupkg.sha512",
     "/Users/tibo/.nuget/packages/microsoft.dotnet.internalabstractions/1.0.0/microsoft.dotnet.internalabstractions.1.0.0.nupkg.sha512",
@@ -15,7 +16,7 @@
     "/Users/tibo/.nuget/packages/microsoft.testplatform.testhost/16.4.0/microsoft.testplatform.testhost.16.4.0.nupkg.sha512",
     "/Users/tibo/.nuget/packages/microsoft.win32.primitives/4.3.0/microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "/Users/tibo/.nuget/packages/microsoft.win32.registry/4.3.0/microsoft.win32.registry.4.3.0.nupkg.sha512",
-    "/Users/tibo/.nuget/packages/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg.sha512",
+    "/Users/tibo/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
     "/Users/tibo/.nuget/packages/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg.sha512",
     "/Users/tibo/.nuget/packages/nuget.frameworks/5.0.0/nuget.frameworks.5.0.0.nupkg.sha512",
     "/Users/tibo/.nuget/packages/nunit/3.12.0/nunit.3.12.0.nupkg.sha512",

@@ -1,4 +1,4 @@
-﻿module Bank.App
+﻿module App
 
 open System
 

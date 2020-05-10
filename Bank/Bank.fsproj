@@ -8,9 +8,7 @@
 
     <ItemGroup>
         <Compile Include="Bank.fs" />
-        <Compile Include="Bank.Type.fs" />
-        <Compile Include="Bank.Core.fs" />
-        <Compile Include="Bank.App.fs" />
+        <Compile Include="App.fs" />
     </ItemGroup>
 
 </Project>

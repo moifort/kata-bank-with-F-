@@ -25,5 +25,6 @@
     <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">/Users/tibo/.nuget/packages/newtonsoft.json/9.0.1</PkgNewtonsoft_Json>
     <PkgMicrosoft_NET_Test_Sdk Condition=" '$(PkgMicrosoft_NET_Test_Sdk)' == '' ">/Users/tibo/.nuget/packages/microsoft.net.test.sdk/16.4.0</PkgMicrosoft_NET_Test_Sdk>
     <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">/Users/tibo/.nuget/packages/fsharp.core/4.7.0</PkgFSharp_Core>
+    <PkgFsUnit Condition=" '$(PkgFsUnit)' == '' ">/Users/tibo/.nuget/packages/fsunit/3.8.1</PkgFsUnit>
   </PropertyGroup>
 </Project>
