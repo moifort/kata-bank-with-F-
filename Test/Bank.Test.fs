@@ -11,12 +11,14 @@ let Setup () = ()
 
 [<Test>]
 let ``should print statement`` () =
-    let date = Date.create "01/04/2014"
-    let account = createAccount (Deposit.create 500.0 date)
-    let creditedAccount = makeDeposit (Deposit.create 500.0 date) account
-    let debitedAccount = makeWithdraw (Withdraw.create 100.0 date) creditedAccount
-    let recreditedAccount = makeDeposit (Deposit.create 1000.0 date) debitedAccount
-    let printedStatement = printStatement recreditedAccount
+
+    let printedStatement =
+        createAccount 500.0
+        |> makeDeposit 500.0
+        |> makeWithdraw 100.0
+        |> makeDeposit 1000.0
+        |> print
+        
     Assert.That
         (printedStatement,
          Is.EquivalentTo

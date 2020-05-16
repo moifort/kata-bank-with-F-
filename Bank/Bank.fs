@@ -23,9 +23,9 @@ module Withdraw =
         { Date: Date
           Amount: Amount }
 
-    let create value date: Withdraw =
+    let create value: Withdraw =
         { Amount = Amount.create value
-          Date = date }
+          Date = Date.create "01/04/2014" }
 
 module Deposit =
     open Date
@@ -35,117 +35,94 @@ module Deposit =
         { Date: Date
           Amount: Amount }
 
-    let create value date: Deposit =
+    let create value: Deposit =
         { Amount = Amount.create value
-          Date = date }
+          Date = Date.create "01/04/2014" }
 
-module Action =
+module Operation =
     open Withdraw
     open Deposit
 
-    type Action =
+    type Operation =
         | Withdraw of Withdraw
         | Deposit of Deposit
 
-module Balance =
+module Statement =
+    open Operation
     open Amount
-    open Action
-    open Deposit
-    open Withdraw
 
-    type Balance = Balance of Amount
-
-    let get (Balance balance) = balance
-
-    let rec create (value: obj) =
-        match value with
-        | :? double as doubleValue ->
-            doubleValue
-            |> Amount.create
-            |> create
-        | :? Amount as amountValue -> amountValue |> Balance
-        | _ -> failwithf "Cannot create Balance from %A" value
-
-    let calculate action balance =
-        let balanceAmount = get balance
-        match action with
-        | Deposit { Amount = amountToAdd } -> Amount.add balanceAmount amountToAdd |> create
-        | Withdraw { Amount = amountToSubtract } -> Amount.subtract balanceAmount amountToSubtract |> create
-
-module Transaction =
-    open Action
-    open Balance
-
-    type Transaction =
-        { Action: Action
-          Balance: Balance }
+    type Statement =
+        { Operation: Operation
+          Balance: Amount }
 
     let balance { Balance = balance } = balance
 
-    let create action balance =
-        { Action = action
+    let create operation balance =
+        { Operation = operation
           Balance = balance }
 
 module Account =
-    open Transaction
+    open Operation
+    open Statement
 
     type Account =
-        { Transactions: Transaction list }
+        { Statements: Statement list }
 
-    let create = { Transactions = List.empty }
+    let create = { Statements = List.empty }
 
-    let currentBalance { Transactions = transactions } =
-        match transactions with
-        | [] -> Balance.create 0.0
-        | [ transaction ] -> transaction.Balance
+    let currentBalance statements =
+        match statements with
+        | [] -> Amount.create 0.0
+        | [ statement ] -> statement.Balance
         | _ :: tail -> (List.last tail).Balance
 
-    let addTransaction action account =
-        let currentBalance = currentBalance account
-        let newBalance = Balance.calculate action currentBalance
+    let updateBalance operation balance =
+        match operation with
+        | Deposit ({ Amount = amount }) -> Amount.add balance amount
+        | Withdraw ({ Amount = amount }) -> Amount.subtract balance amount
 
-        let newTransaction = Transaction.create action newBalance
-        { Transactions = account.Transactions @ [ newTransaction ] }
+    let addOperation operation account =
+        let currentBalance = currentBalance account.Statements
+        let newBalance = updateBalance operation currentBalance
+        let newStatement = Statement.create operation newBalance
+        { Statements = account.Statements @ [ newStatement ] }
 
 module Print =
     open Date
-    open Account
-    open Action
     open Amount
-    open Balance
-    open Transaction
-    
+    open Account
+    open Statement
+    open Operation
+
     let rec print (data: obj) =
         match data with
-        | :? Amount as amount -> Amount.get amount |> sprintf "%.2f"
-        | :? Balance as balance -> Balance.get balance |> print
+        | :? Amount as amount  -> Amount.get amount |> sprintf "%.2f"
         | :? Date as date -> Date.get date |> sprintf "%s"
         | _ -> "Nothing to print"
 
-    let printTransaction { Action = action; Balance = balance } =
-        match action with
+    let printStatement { Operation = operation; Balance = balance } =
+        match operation with
         | Deposit { Date = date; Amount = amount } ->
             sprintf "%s | %s | %s" (print date) (print amount) (print balance)
         | Withdraw { Amount = amount; Date = date } ->
             sprintf "%s | -%s | %s" (print date) (print amount) (print balance)
-    
-    let printStatement transactions = "DATE       | AMOUNT  | BALANCE" :: (transactions
+
+    let printStatements account =
+        "DATE       | AMOUNT  | BALANCE" :: (account.Statements
                                              |> List.skip 1
-                                             |> List.map printTransaction) 
+                                             |> List.map printStatement)
+
 module Command =
-    open Action
-    open Account
-    
-    let createAccount initialDeposit =
-        Account.addTransaction (Deposit initialDeposit) Account.create
+    open Operation
 
     let makeWithdraw withdraw account =
-        Account.addTransaction (Withdraw withdraw) account
+        let withdraw = (Withdraw.create withdraw)
+        Account.addOperation (Withdraw withdraw) account
 
     let makeDeposit deposit account =
-        Account.addTransaction (Deposit deposit) account
+        let deposit = Deposit.create deposit
+        Account.addOperation (Deposit deposit) account
 
-    let printStatement account = Print.printStatement account.Transactions
-       
+    let createAccount initialDeposit = Account.create |> makeDeposit initialDeposit
 
-
+    let print account = Print.printStatements account
